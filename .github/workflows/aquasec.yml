@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
@@ -43,7 +43,7 @@ jobs:
           docker image ls
           curl -L download.codesec.aquasec.com/billy/install.sh | sh
           billy generate \
-              --access-token "${{ secrets.GITHUB_TOKEN }}" \
+              --access-token "${{ github.token }}" \
              --aqua-key "${{ secrets.AQUA_KEY }}" \
              --aqua-secret "${{ secrets.AQUA_SECRET }}" \
              --artifact-path "aquasaemea/insecure-bank-app:${{ github.sha }}"
