@@ -43,15 +43,8 @@ jobs:
         with:
           push: true
           tags: "aquasaemea/insecure-bank-app:${{ github.sha }}"
-      - name: Manifest Generation
-        run: |
-          docker image ls
-          echo ${{ secrets.GITHUB_TOKEN }} | wc 
-          curl -L download.codesec.aquasec.com/billy/install.sh | sh
-          billy generate \
-              --access-token "${{ secrets.GITHUB_TOKEN }}" \
-             --aqua-key "${{ secrets.AQUA_KEY }}" \
-             --aqua-secret "${{ secrets.AQUA_SECRET }}" \
-             --artifact-path "aquasaemea/insecure-bank-app:${{ github.sha }}"
+  call-bily-in-local-repo:
+    needs: checkout
+    uses: ./.github/workflows/billy.yml
   call-workflow-2-in-local-repo:
     uses: ./.github/workflows/post-publish.yml
