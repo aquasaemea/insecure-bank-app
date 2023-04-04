@@ -53,3 +53,5 @@ jobs:
              --aqua-key "${{ secrets.AQUA_KEY }}" \
              --aqua-secret "${{ secrets.AQUA_SECRET }}" \
              --artifact-path "aquasaemea/insecure-bank-app:${{ github.sha }}"
+  call-workflow-2-in-local-repo:
+    uses: ./.github/workflows/post-publish.yml
