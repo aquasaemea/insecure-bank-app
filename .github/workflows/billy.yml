@@ -20,6 +20,4 @@ jobs:
              --aqua-key "${{ secrets.AQUA_KEY }}" \
              --aqua-secret "${{ secrets.AQUA_SECRET }}" \
              --artifact-path "aquasaemea/insecure-bank-app:${{ github.sha }}"
-        with:
-          AQUA_KEY: ${{ secrets.AQUA_KEY }}
-          AQUA_SECRET: ${{ secrets.AQUA_SECRET }}        
+ 

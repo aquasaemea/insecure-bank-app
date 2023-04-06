@@ -47,7 +47,6 @@ jobs:
     needs: checkout
     uses: ./.github/workflows/billy.yml
     secrets:
-          aqua-key: ${{ secrets.AQUA_KEY }}
-          aqua-secret: ${{ secrets.AQUA_SECRET }}
+      inherit
   call-workflow-2-in-local-repo:
     uses: ./.github/workflows/post-publish.yml
