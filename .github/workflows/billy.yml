@@ -8,7 +8,7 @@ on:
 jobs:
   post_publish:
     runs-on: ubuntu-latest
-    name: Post-Publish Job
+    name: Run Aqua SSCS Billy
     steps:
       - name: Manifest Generation
         run: |
