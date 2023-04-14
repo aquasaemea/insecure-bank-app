@@ -1,6 +1,6 @@
 # If enabled, this workflow will be triggered after the 'publish' job in the build workflow (ci.yml) has finished
 
-name: Post-Publish Workflow
+name: Billy Workflow
 
 on:
   workflow_call:
