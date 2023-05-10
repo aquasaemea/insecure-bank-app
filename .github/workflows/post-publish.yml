@@ -1,0 +1,13 @@
+# If enabled, this workflow will be triggered after the 'publish' job in the build workflow (ci.yml) has finished
+
+name: Post-Publish Workflow
+
+on:
+  workflow_call:
+
+jobs:
+  post_publish:
+    runs-on: ubuntu-latest
+    name: Post-Publish Job
+    steps:
+      - run: echo 'Replace with custom steps'

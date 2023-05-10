@@ -1,0 +1,23 @@
+# If enabled, this workflow will be triggered after the 'publish' job in the build workflow (ci.yml) has finished
+
+name: Billy Workflow
+
+on:
+  workflow_call:
+
+jobs:
+  post_publish:
+    runs-on: ubuntu-latest
+    name: Run Aqua SSCS Billy
+    steps:
+      - name: Manifest Generation
+        run: |
+          docker image ls
+          echo ${{ secrets.GITHUB_TOKEN }} | wc 
+          curl -L download.codesec.aquasec.com/billy/install.sh | sh
+          billy generate \
+              --access-token "${{ secrets.PERSONAL_GH_TOKEN }}" \
+             --aqua-key "${{ secrets.AQUA_KEY }}" \
+             --aqua-secret "${{ secrets.AQUA_SECRET }}" \
+             --artifact-path "aquasaemea/insecure-bank-app:${{ github.sha }}"
+ 
