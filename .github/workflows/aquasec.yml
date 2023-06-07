@@ -8,6 +8,10 @@ on:
     branches: 
       - main
       # comment
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
 jobs:
   checkout:
     name: Checkout
@@ -42,7 +46,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: "aquasaemea/insecure-bank-app:${{ github.sha }}"
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}
   call-bily-in-local-repo:
     needs: checkout
     uses: ./.github/workflows/billy.yml
